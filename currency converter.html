@@ -1,0 +1,203 @@
+<html>
+    <head>
+        <title>Currency Converter</title>
+        <style>
+
+            body
+            {
+                color: white;
+                font-size: 20px;
+                background-color: rgba(0, 0, 0, 0.788);            
+            }            
+
+            .outline
+            {
+                align-self: auto;
+                margin: auto;
+	            width: 70%;
+	            border-radius: 6px;
+                background-color: rgba(19, 19, 180, 0.89);
+                border: 1.5px solid rgb(255, 217, 0);
+                padding: 20px;
+            }
+
+            .outline2
+            {
+                width: 80%;
+                margin: auto;
+                border-radius: 10px;
+                padding: 20px;
+            }
+
+            .img1
+            {
+                border-radius: 50%;
+            }
+
+            h2
+            {
+                text-align: center;
+                color:  rgb(255, 217, 0);
+                padding: none;
+            }
+
+            input[type=number], select 
+            {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid blue;
+                border-radius: 4px;
+                box-sizing: border-box;
+                font-size: 20px;
+                color: rgba(19, 19, 180, 0.89);
+            }
+
+            input[type=number]:focus, select:focus
+            {
+                border-radius: 4px;
+            	border: 3px solid rgb(255, 217, 0);
+                outline-color : rgb(255, 217, 0);
+            }
+
+            input[name="val"]
+            {
+                color: rgb(255, 217, 0);
+                font-size: 40px;
+                background-color: transparent;
+                border: 3px solid  transparent;
+                text-align: center;
+            }
+
+            input[name="val"]:focus
+            {
+                border: 3px solid  transparent;
+                outline-color : transparent;
+            }
+
+            input[type=button]
+            {
+                margin: auto;
+                width: 100%;
+                background-color: rgb(255, 217, 0);
+                color: rgba(19, 19, 180, 0.89);
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 20px
+            }
+
+            input[type=button]:focus
+            {
+                border: 0px solid transparent;
+                outline-color : transparent;
+            }
+
+            input[type=button]:hover
+            {
+                background-color:  rgba(255, 208, 0, 0.979);
+            }
+
+        </style>
+        <script>
+
+            function fun()
+            {
+                document.con.from.value=document.con.from.value;
+            }
+
+            
+            function fun1()
+            {
+                document.con.to.value=document.con.to.value;
+            }
+
+            function fun2()
+            {
+                var f=document.con.from.value;
+                var t=document.con.to.value;
+                var a=document.con.amt.value;
+
+                if ((f=="aed") && (t=="aed"))
+                {
+                    document.con.val.value= a;
+                }                
+                else if ((f=="aed") && (t=="dollar"))
+                {
+                    document.con.val.value= a*0.27;
+                }
+                else if ((f=="aed") && (t=="pound"))
+                {
+                    document.con.val.value= a*0.22;
+                }
+
+                else if ((f=="dollar") && (t=="aed"))
+                {
+                    document.con.val.value= a*3.67;
+                }
+                else if ((f=="dollar") && (t=="dollar"))
+                {
+                    document.con.val.value= a;
+                }
+                else if ((f=="dollar") && (t=="pound"))
+                {
+                    document.con.val.value= a*0.80;
+                }
+
+                else if ((f=="pound") && (t=="aed"))
+                {
+                    document.con.val.value= a*4.59;
+                }
+                else if ((f=="pound") && (t=="dollar"))
+                {
+                    document.con.val.value= a*1.25;
+                }
+                else if ((f=="pound") && (t=="pound"))
+                {
+                    document.con.val.value= a;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="outline">
+            <div class="outline2">
+                <form name="con">
+                    <h2>Currency Converter</h2>
+                    Amount <input type="number" name="amt">
+
+                    <br/>
+
+                    Form <select name="from" onChange="fun()">
+                            <option>Select...</option>
+                            <option value="aed">Dirham</option>
+                            <option value="dollar">Dollar</option>
+                            <option value="pound">pound</option>
+                    </select>
+
+                    <br/>
+
+                    To <select name="to" onChange="fun1()">
+                            <option>Select...</option>
+                            <option value="aed">Dirham</option>
+                            <option value="dollar">Dollar</option>
+                            <option value="pound">pound</option>
+                    </select>
+
+                    <br/>
+
+                    value <input type="number" name="val" readonly>
+
+                    <br/>
+                    <br/>
+
+                    <input type="button" value="Convert" onClick="fun2()">
+                </form>
+            </div>
+        </div>
+        </body>
+    </body>
+</html>
